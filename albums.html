@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Albums — John Michael Photography</title>
+    <!-- Основні стилі -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Шрифти -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">
+                <span class="logo__name">JOHN MICHAEL</span>
+                <span class="logo__sub">PHOTOGRAPHY STUDIO</span>
+            </a>
+            
+            <button class="burger-btn" aria-label="Відкрити меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+                    <li><a href="services.html" class="nav__link">Services</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="albums.html" class="nav__link active">Client Albums</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="albums-page">
+        <div class="container">
+            <header class="page-header">
+                <h1 class="page-title">Client Galleries</h1>
+                <p class="page-subtitle">Приватні альбоми для перегляду та завантаження фотографій клієнтами</p>
+            </header>
+
+            <!-- Сітка альбомів -->
+            <div class="albums-grid">
+                
+                <!-- Альбом 1 -->
+                <div class="album-card">
+                    <div class="album-card__cover">
+                        <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80" alt="Сім'я Ковальчук">
+                        <span class="album-card__badge">Protected</span>
+                    </div>
+                    <div class="album-card__body">
+                        <h3 class="album-card__title">Сім'я Ковальчук — Осінь</h3>
+                        <p class="album-card__date">12 Жовтня, 2025</p>
+                        
+                        <form class="album-card__access-form" data-pin="1234">
+                            <input type="password" class="album-card__input" placeholder="Введіть PIN (тест: 1234)" maxlength="4" required>
+                            <button type="submit" class="btn btn--outline btn--sm">Open</button>
+                        </form>
+                        <div class="album-card__message"></div>
+                    </div>
+                </div>
+
+                <!-- Альбом 2 -->
+                <div class="album-card">
+                    <div class="album-card__cover">
+                        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=80" alt="Весілля Олени та Ігоря">
+                        <span class="album-card__badge">Protected</span>
+                    </div>
+                    <div class="album-card__body">
+                        <h3 class="album-card__title">Олена та Ігор — Весілля</h3>
+                        <p class="album-card__date">20 Вересня, 2025</p>
+                        
+                        <form class="album-card__access-form" data-pin="5678">
+                            <input type="password" class="album-card__input" placeholder="Введіть PIN (тест: 5678)" maxlength="4" required>
+                            <button type="submit" class="btn btn--outline btn--sm">Open</button>
+                        </form>
+                        <div class="album-card__message"></div>
+                    </div>
+                </div>
+
+                <!-- Альбом 3 -->
+                <div class="album-card">
+                    <div class="album-card__cover">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Портретна зйомка Марії">
+                        <span class="album-card__badge">Public</span>
+                    </div>
+                    <div class="album-card__body">
+                        <h3 class="album-card__title">Марія — Портретна зйомка</h3>
+                        <p class="album-card__date">05 Серпня, 2025</p>
+                        <a href="portfolio.html" class="btn btn--outline btn--sm" style="display: inline-block; text-align: center; margin-top: 10px;">View Gallery</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__brand">
+                <span class="logo__name">JOHN MICHAEL</span>
+                <p>© 2026 John Michael Photography. All rights reserved.</p>
+            </div>
+            <div class="footer__socials">
+                <a href="#" target="_blank" rel="noopener">Instagram</a>
+                <a href="#" target="_blank" rel="noopener">Pinterest</a>
+                <a href="#" target="_blank" rel="noopener">Behance</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипти -->
+    <script src="js/main.js"></script>
+    <script src="js/albums.js"></script>
+</body>
+</html>

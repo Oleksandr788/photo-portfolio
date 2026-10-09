@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — John Michael Photography</title>
+    <!-- Основні стилі -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Шрифти -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">
+                <span class="logo__name">JOHN MICHAEL</span>
+                <span class="logo__sub">PHOTOGRAPHY STUDIO</span>
+            </a>
+            
+            <button class="burger-btn" aria-label="Відкрити меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+                    <li><a href="services.html" class="nav__link">Services</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="albums.html" class="nav__link">Client Albums</a></li>
+                    <li><a href="contact.html" class="nav__link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-page">
+        <div class="container">
+            <header class="page-header">
+                <h1 class="page-title">Get in Touch</h1>
+                <p class="page-subtitle">Заповніть форму нижче, щоб уточнити деталі або забронювати дату зйомки</p>
+            </header>
+
+            <div class="contact-grid">
+                <!-- Форма запиту -->
+                <form class="contact-form" id="bookingForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Ваше ім'я *</label>
+                        <input type="text" id="name" name="name" placeholder="Олександр або Марія" required>
+                        <span class="error-message" id="nameError">Будь ласка, вкажіть ваше ім'я</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Ваш Email *</label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                        <span class="error-message" id="emailError">Введіть коректну електронну адресу</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Тип фотосесії *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Оберіть послугу...</option>
+                            <option value="portraits">Portraits Session</option>
+                            <option value="family">Family Story</option>
+                            <option value="maternity">Maternity Session</option>
+                            <option value="weddings">Wedding Photography</option>
+                            <option value="commercial">Commercial Shoot</option>
+                        </select>
+                        <span class="error-message" id="serviceError">Будь ласка, оберіть тип послуги</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Бажана дата</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Ваше повідомлення</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Розкажіть декілька слів про ваші побажання..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary">Send Request</button>
+                    <div class="form-status" id="formStatus"></div>
+                </form>
+
+                <!-- Інформація для зв'язку -->
+                <div class="contact-info">
+                    <h3>Contact Info</h3>
+                    <p><strong>Email:</strong> info@johnmichaelphoto.com</p>
+                    <p><strong>Phone:</strong> +380 67 000 0000</p>
+                    <p><strong>Location:</strong> Київ / Відрядження по Україні</p>
+                    <div class="contact-info__socials">
+                        <h4>Social Media</h4>
+                        <a href="#">Instagram</a>
+                        <a href="#">Pinterest</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__brand">
+                <span class="logo__name">JOHN MICHAEL</span>
+                <p>© 2026 John Michael Photography. All rights reserved.</p>
+            </div>
+            <div class="footer__socials">
+                <a href="#" target="_blank" rel="noopener">Instagram</a>
+                <a href="#" target="_blank" rel="noopener">Pinterest</a>
+                <a href="#" target="_blank" rel="noopener">Behance</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипти -->
+    <script src="js/main.js"></script>
+    <script src="js/services.js"></script>
+</body>
+</html>
