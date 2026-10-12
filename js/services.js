@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. Масив даних послуг (можна змінювати ціни, назви та описи тут) ---
+    // --- 1. Масив даних послуг ---
     const servicesData = [
         {
             title: "Portrait Session",
@@ -54,16 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
-    // --- 2. Валідація контактної форми (contact.html) ---
+    // --- 2. Валідація та відправка контактної форми через Formspree ---
     const bookingForm = document.getElementById('bookingForm');
 
     if (bookingForm) {
-        bookingForm.addEventListener('submit', (event) => {
-            event.preventDefault(); // Запобігаємо перезавантаженню сторінки
+        bookingForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Зупиняємо стандартну відправку
 
             let isValid = true;
-
-            // Елементи форми
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
             const serviceSelect = document.getElementById('service');
@@ -77,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 removeError(nameInput);
             }
 
-            // Перевірка Email (за допомогою регулярного виразу)
+            // Перевірка Email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(emailInput.value.trim())) {
                 setError(emailInput);
@@ -86,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 removeError(emailInput);
             }
 
-            // Перевірка вибору послуги
+            // Перевірка послуги
             if (!serviceSelect.value) {
                 setError(serviceSelect);
                 isValid = false;
@@ -94,16 +92,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 removeError(serviceSelect);
             }
 
-            // Якщо всі обов'язкові поля заповнені вірно
+            // Якщо перевірка успішна — надсилаємо дані на Formspree
             if (isValid) {
-                formStatus.className = 'form-status success';
-                formStatus.textContent = 'Дякуємо! Ваша заявка успішно сформована та підготовлена до надсилання.';
-                bookingForm.reset();
+                formStatus.className = 'form-status';
+                formStatus.style.display = 'block';
+                formStatus.textContent = 'Надсилання заявки...';
+
+                try {
+                    const formData = new FormData(bookingForm);
+                    const response = await fetch(bookingForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        formStatus.className = 'form-status success';
+                        formStatus.textContent = 'Дякуємо! Ваша заявка успішно надіслана на нашу пошту.';
+                        bookingForm.reset();
+                    } else {
+                        formStatus.className = 'form-status error';
+                        formStatus.style.backgroundColor = '#FFEBEE';
+                        formStatus.style.color = '#C62828';
+                        formStatus.textContent = 'Помилка надсилання. Спробуйте ще раз пізніше.';
+                    }
+                } catch (error) {
+                    formStatus.className = 'form-status error';
+                    formStatus.style.backgroundColor = '#FFEBEE';
+                    formStatus.style.color = '#C62828';
+                    formStatus.textContent = 'Сталася мережева помилка. Перевірте підключення до інтернету.';
+                }
             }
         });
     }
 
-    // Допоміжні функції для показу/приховування помилок
     function setError(element) {
         element.parentElement.classList.add('error');
     }
